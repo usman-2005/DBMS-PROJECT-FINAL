@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineAxis</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: gold;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 2px 10px gold;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .title img {
+      width: 50px;
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    .title h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-top: 5px;
+      color: #ffd700aa;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      width: 80%;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .box {
+      border: 2px solid gold;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      transform: scale(1);
+      box-shadow: 0 0 5px transparent;
+    }
+
+    .box:hover {
+      background: gold;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px gold;
+    }
+
+    footer {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      color: #ffd70099;
+      animation: fadeIn 3s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .title h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title">
+      <img src="https://cdn-icons-png.flaticon.com/512/3063/3063824.png" alt="film icon" />
+      <h1>CineAxis</h1>
+    </div>
+    <p class="subtitle">Power your cinema, the smart way.</p>
+  </header>
+
+  <main>
+    <div class="box">Users</div>
+    <div class="box">Cinemas</div>
+    <div class="box">Movies</div>
+    <div class="box">Screens</div>
+    <div class="box">Seats</div>
+    <div class="box">Shows</div>
+    <div class="box">Bookings</div>
+    <div class="box">Payments</div>
+    <div class="box">Staff</div>
+    <div class="box">Feedback</div>
+  </main>
+
+  <footer>
+    Built for Cinemas. Designed for Experience.
+  </footer>
+
+</body>
+</html>
