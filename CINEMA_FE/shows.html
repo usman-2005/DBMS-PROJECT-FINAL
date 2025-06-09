@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shows</title>
+ <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Shows</h1>
+    <button id="showShowFormBtn" class="btn btn-success">+ Add New Show</button>
+
+    <!-- Shows Table -->
+    <table id="showTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Show ID</th>
+          <th>Movie ID</th>
+          <th>Screen ID</th>
+          <th>Show Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Show Form -->
+  <div id="showFormSection" class="d-none">
+    <form id="showForm">
+      <h2 id="showFormTitle">Insert Show</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="movie_id">Movie ID</label>
+          <input type="number" id="movie_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="screen_id">Screen ID</label>
+          <input type="number" id="screen_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="show_date">Show Date</label>
+          <input type="date" id="show_date" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="start_time">Start Time</label>
+          <input type="time" id="start_time" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="end_time">End Time</label>
+          <input type="time" id="end_time" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="price">Price</label>
+          <input type="number" step="0.01" id="price" class="form-control" required />
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelShowFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/shows.js"></script>
+</body>
+</html>

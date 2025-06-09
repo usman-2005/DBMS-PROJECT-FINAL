@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback Management</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>User Feedback</h1>
+    <button id="showFeedbackFormBtn" class="btn btn-success">+ Add New Feedback</button>
+
+    <!-- Feedback Table -->
+    <table id="feedbackTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Feedback ID</th>
+          <th>User ID</th>
+          <th>Movie ID</th>
+          <th>Rating</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Feedback Form -->
+  <div id="feedbackFormSection" class="d-none">
+    <form id="feedbackForm">
+      <h2 id="feedbackFormTitle">Insert Feedback</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="user_id">User ID</label>
+          <input type="number" id="user_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_id">Movie ID</label>
+          <input type="number" id="movie_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="rating">Rating</label>
+          <input type="number" id="rating" step="0.1" min="0" max="10" class="form-control" required />
+        </div>
+      </div>
+      <div style="margin-top: 1rem;">
+        <label for="comment">Comment (optional)</label>
+        <textarea id="comment" class="form-control" rows="3"></textarea>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelFeedbackFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/feedback.js"></script>
+</body>
+</html>

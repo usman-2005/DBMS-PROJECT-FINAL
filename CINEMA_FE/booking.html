@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookings</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bookings</h1>
+    <button id="showBookingFormBtn" class="btn btn-success">+ Add New Booking</button>
+
+    <!-- Booking Table -->
+    <table id="bookingTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>User ID</th>
+          <th>Show ID</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Booking Form -->
+  <div id="bookingFormSection" class="d-none">
+    <form id="bookingForm">
+      <h2 id="bookingFormTitle">Insert Booking</h2>
+      <div class="row">
+        <div class="col">
+          <label>User ID</label>
+          <input type="number" id="user_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label>Show ID</label>
+          <input type="number" id="show_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label>Total Amount</label>
+          <input type="number" id="total_amount" class="form-control" required />
+        </div>
+        <div class="col">
+          <label>Status</label>
+          <input type="text" id="status" class="form-control" required />
+        </div>
+      </div>
+      <br/>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelBookingFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/booking.js"></script>
+</body>
+</html>

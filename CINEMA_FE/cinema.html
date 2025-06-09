@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cinema Management</title>
+<link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Cinemas</h1>
+    <button class="btn btn-success">+ Add New Cinema</button>
+
+    <!-- Cinema Table -->
+    <table id="cinemaTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Cinema ID</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Cinema records will be rendered here -->
+      </tbody>
+    </table>
+
+    <!-- Cinema Form -->
+    <div id="formSection" class="d-none">
+      <h2 id="formTitle">Insert Cinema</h2>
+      <form id="cinemaForm">
+        <div class="row" style="display: flex; flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1 1 300px;">
+            <label for="name">Cinema Name</label><br/>
+            <input type="text" id="name" class="form-control" required />
+          </div>
+          <div style="flex: 1 1 300px;">
+            <label for="city">City</label><br/>
+            <input type="text" id="city" class="form-control" required />
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" id="cancelFormBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="JS/cinema.js"></script>
+</body>
+</html>

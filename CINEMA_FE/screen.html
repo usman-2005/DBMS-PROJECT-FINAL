@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Screens</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Screens</h1>
+    <button id="showScreenFormBtn" class="btn btn-success">+ Add New Screen</button>
+
+    <!-- Screens Table -->
+    <table id="screenTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Screen ID</th>
+          <th>Cinema ID</th>
+          <th>Screen Number</th>
+          <th>Total Seats</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Screen Form -->
+  <div id="screenFormSection" class="d-none">
+    <form id="screenForm">
+      <h2 id="screenFormTitle">Insert Screen</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="cinema_id">Cinema ID</label>
+          <input type="number" id="cinema_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="screen_number">Screen Number</label>
+          <input type="text" id="screen_number" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="total_seats">Total Seats</label>
+          <input type="number" id="total_seats" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="screen_type">Type</label>
+          <input type="text" id="screen_type" class="form-control" required />
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelScreenFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/screen.js"></script>
+</body>
+</html>

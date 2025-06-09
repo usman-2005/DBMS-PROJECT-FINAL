@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staff Management</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Staff Members</h1>
+    <button id="showStaffFormBtn" class="btn btn-success">+ Add New Staff</button>
+
+    <!-- Staff Table -->
+    <table id="staffTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Staff ID</th>
+          <th>Cinema ID</th>
+          <th>Full Name</th>
+          <th>Role</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Hire Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Staff Form -->
+  <div id="staffFormSection" class="d-none">
+    <form id="staffForm">
+      <h2 id="staffFormTitle">Insert Staff</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="cinema_id">Cinema ID</label>
+          <input type="number" id="cinema_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="full_name">Full Name</label>
+          <input type="text" id="full_name" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="role">Role</label>
+          <input type="text" id="role" class="form-control" required />
+        </div>
+      </div>
+      <div class="row" style="gap: 1rem; margin-top: 1rem;">
+        <div class="col">
+          <label for="phone">Phone</label>
+          <input type="text" id="phone" class="form-control" />
+        </div>
+        <div class="col">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="hire_date">Hire Date</label>
+          <input type="date" id="hire_date" class="form-control" required />
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelStaffFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/staff.js"></script>
+</body>
+</html>

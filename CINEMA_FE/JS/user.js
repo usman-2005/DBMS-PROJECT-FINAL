@@ -1,5 +1,5 @@
 const users_URL = "https://studious-giggle-q7p4w755p7qqc97qq-4040.app.github.dev/user";
-const post_URL = "https://studious-giggle-q7p4w755p7qqc97qq-4040.app.github.dev/users"; 
+const post_URL = "https://studious-giggle-q7p4w755p7qqc97qq-4040.app.github.dev/users";
 
 let usersData = [];
 
@@ -9,7 +9,13 @@ const userForm = document.getElementById("userForm");
 
 // Render users table
 function renderTable() {
+  console.log("Rendering usersData:", usersData);
   tbody.innerHTML = "";
+
+  if (!Array.isArray(usersData) || usersData.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='5'>No users found.</td></tr>";
+    return;
+  }
 
   usersData.forEach((user) => {
     const tr = document.createElement("tr");
@@ -32,7 +38,8 @@ function fetchUsers() {
       return res.json();
     })
     .then(data => {
-      usersData = data;
+      console.log("Fetched users:", data);
+      usersData = Array.isArray(data) ? data : (data.users || []);
       renderTable();
     })
     .catch(err => console.error(err.message));
@@ -54,9 +61,7 @@ function hideForm() {
 }
 
 // Show form button
-document.querySelector("button.btn-success")?.addEventListener("click", () => {
-  showForm();
-});
+document.querySelector("button.btn-success")?.addEventListener("click", showForm);
 
 // Form submit handler
 userForm.addEventListener("submit", e => {
@@ -67,7 +72,7 @@ userForm.addEventListener("submit", e => {
   const phone = document.getElementById("phone").value.trim();
 
   if (!full_name || !email) {
-    alert("⚠️ Full name and email are required.");
+    alert("⚠ Full name and email are required.");
     return;
   }
 
@@ -94,6 +99,4 @@ userForm.addEventListener("submit", e => {
     });
 });
 
-document.getElementById("cancelFormBtn").addEventListener("click", function () {
-  formSection.classList.add("d-none");
-});
+document.getElementById("cancelFormBtn").addEventListener("click", hideForm);

@@ -55,16 +55,35 @@
       color: #ffd700aa;
     }
 
-    main {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 20px;
-      width: 80%;
+    .main-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      justify-content: center;
+      width: 90%;
       margin-top: 30px;
       animation: fadeIn 2s ease-out;
     }
 
-    .box {
+    .image-box img {
+      width: 250px;
+      border: 3px solid gold;
+      border-radius: 10px;
+      box-shadow: 0 0 15px gold;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      padding: 10px;
+    }
+
+    .button-container a.box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 2px solid gold;
       background-color: rgba(0, 0, 0, 0.7);
       padding: 15px;
@@ -75,9 +94,12 @@
       transition: all 0.3s ease;
       transform: scale(1);
       box-shadow: 0 0 5px transparent;
+      color: gold;
+      text-decoration: none;
+      user-select: none;
     }
 
-    .box:hover {
+    .button-container a.box:hover {
       background: gold;
       color: black;
       transform: scale(1.05);
@@ -97,9 +119,29 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .button-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .image-box img {
+        width: 200px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
       .title h1 {
         font-size: 2rem;
+      }
+
+      .button-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -114,17 +156,19 @@
     <p class="subtitle">Power your cinema, the smart way.</p>
   </header>
 
-  <main>
-    <div class="box">Users</div>
-    <div class="box">Cinemas</div>
-    <div class="box">Movies</div>
-    <div class="box">Screens</div>
-    <div class="box">Seats</div>
-    <div class="box">Shows</div>
-    <div class="box">Bookings</div>
-    <div class="box">Payments</div>
-    <div class="box">Staff</div>
-    <div class="box">Feedback</div>
+  
+    <div class="button-container">
+      <a href="user.html" class="box">USERS</a>
+      <a href="cinema.html" class="box">CINEMAS</a>
+      <a href="movie.html" class="box">MOVIES</a>
+      <a href="screen.html" class="box">SCREENS</a>
+      <a href="seat.html" class="box">SEATS</a>
+      <a href="show.html" class="box">SHOWS</a>
+      <a href="booking.html" class="box">BOOKINGS</a>
+      <a href="payment.html" class="box">PAYMENTS</a>
+      <a href="staff.html" class="box">STAFFS</a>
+      <a href="feedback.html" class="box">FEEDBACK</a>
+    </div>
   </main>
 
   <footer>

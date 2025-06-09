@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seats</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Seats</h1>
+    <button id="showSeatFormBtn" class="btn btn-success">+ Add New Seat</button>
+
+    <!-- Seats Table -->
+    <table id="seatTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Seat ID</th>
+          <th>Screen ID</th>
+          <th>Seat Number</th>
+          <th>Seat Type</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Seat Form -->
+  <div id="seatFormSection" class="d-none">
+    <form id="seatForm">
+      <h2 id="seatFormTitle">Insert Seat</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="screen_id">Screen ID</label>
+          <input type="number" id="screen_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="seat_number">Seat Number</label>
+          <input type="text" id="seat_number" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="seat_type">Seat Type</label>
+          <input type="text" id="seat_type" class="form-control" required />
+        </div>
+        <div class="col" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1.8rem;">
+          <input type="checkbox" id="is_available" />
+          <label for="is_available">Available</label>
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelSeatFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/seat.js"></script>
+</body>
+</html>

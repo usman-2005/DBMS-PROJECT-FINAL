@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payments</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Payments</h1>
+    <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Payment</button>
+
+    <!-- Payments Table -->
+    <table id="paymentTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Payment ID</th>
+          <th>Booking ID</th>
+          <th>Amount</th>
+          <th>Payment Method</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Payment Form -->
+  <div id="paymentFormSection" class="d-none">
+    <form id="paymentForm">
+      <h2 id="paymentFormTitle">Insert Payment</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="booking_id">Booking ID</label>
+          <input type="number" id="booking_id" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="amount">Amount</label>
+          <input type="number" step="0.01" id="amount" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="payment_method">Payment Method</label>
+          <input type="text" id="payment_method" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="status">Status</label>
+          <input type="text" id="status" class="form-control" required />
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelPaymentFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/payment.js"></script>
+</body>
+</html>

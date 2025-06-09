@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Management</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Users</h1>
+    <button class="btn btn-success">+ Add New User</button>
+
+    <!-- User Table -->
+    <table id="usersTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Users will be dynamically inserted here -->
+      </tbody>
+    </table>
+
+    <!-- Insert User Form -->
+    <div id="formSection" class="d-none">
+      <h2 id="formTitle">Insert User</h2>
+      <form id="userForm">
+        <div class="row" style="display: flex; flex-wrap: wrap; gap: 15px;">
+          <div style="flex: 1 1 300px;">
+            <label for="full_name">Full Name</label><br/>
+            <input type="text" id="full_name" class="form-control" required />
+          </div>
+          <div style="flex: 1 1 300px;">
+            <label for="email">Email</label><br/>
+            <input type="email" id="email" class="form-control" required />
+          </div>
+          <div style="flex: 1 1 300px;">
+            <label for="phone">Phone</label><br/>
+            <input type="text" id="phone" class="form-control" />
+          </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-secondary" id="cancelFormBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="JS/user.js"></script>
+</body>
+</html>

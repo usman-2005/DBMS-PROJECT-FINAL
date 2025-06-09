@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movies</title>
+  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+</head>
+<body>
+  <div class="container">
+    <h1>Movies</h1>
+    <button id="showMovieFormBtn" class="btn btn-success">+ Add New Movie</button>
+
+    <!-- Movies Table -->
+    <table id="movieTable" class="table" style="width: 100%; margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Movie ID</th>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Duration</th>
+          <th>Language</th>
+          <th>Release Date</th>
+          <th>Certificate</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Insert Movie Form -->
+  <div id="movieFormSection" class="d-none">
+    <form id="movieForm">
+      <h2 id="movieFormTitle">Insert Movie</h2>
+      <div class="row" style="gap: 1rem;">
+        <div class="col">
+          <label for="movie_title">Title</label>
+          <input type="text" id="movie_title" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_genre">Genre</label>
+          <input type="text" id="movie_genre" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_duration">Duration (minutes)</label>
+          <input type="number" id="movie_duration" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_language">Language</label>
+          <input type="text" id="movie_language" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_release_date">Release Date</label>
+          <input type="date" id="movie_release_date" class="form-control" required />
+        </div>
+        <div class="col">
+          <label for="movie_certificate">Certificate (optional)</label>
+          <input type="text" id="movie_certificate" class="form-control" />
+        </div>
+      </div>
+      <br />
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" id="cancelMovieFormBtn" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="JS/movie.js"></script>
+</body>
+</html>
