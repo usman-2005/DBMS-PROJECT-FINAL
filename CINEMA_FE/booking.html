@@ -8,9 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>Bookings</h1>
-    <button id="showBookingFormBtn" class="btn btn-success">+ Add New Booking</button>
+    <h1 class="HEADING">BOOKINGS</h1>
+   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Booking</button>
 
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" id="chartsBtn">Charts</button>
+        <button class="btn btn-secondary" onclick="location.href='index.html'">Home</button>
+      </div>
+    </div>
     <!-- Booking Table -->
     <table id="bookingTable" class="table" style="width: 100%; margin-top: 20px;">
       <thead>

@@ -6,11 +6,13 @@ let paymentData = [];
 const tbody = document.querySelector("#paymentTable tbody");
 const formSection = document.getElementById("paymentFormSection");
 const paymentForm = document.getElementById("paymentForm");
+const chartBtn = document.getElementById("chartsBtn");
+const chartSection = document.getElementById("chartSection");
+let chartInstance;
 
 // Render payments table
 function renderPaymentTable() {
   tbody.innerHTML = "";
-
   paymentData.forEach((payment) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -98,4 +100,41 @@ paymentForm.addEventListener("submit", e => {
 // Cancel form
 document.getElementById("cancelPaymentFormBtn")?.addEventListener("click", function () {
   hidePaymentForm();
+});
+
+// Show Chart (Pie of Payment Methods)
+chartBtn?.addEventListener("click", () => {
+  chartSection.classList.toggle("d-none");
+
+  const methodCount = {};
+  paymentData.forEach(payment => {
+    const method = payment.payment_method;
+    methodCount[method] = (methodCount[method] || 0) + 1;
+  });
+
+  const labels = Object.keys(methodCount);
+  const data = Object.values(methodCount);
+
+  const ctx = document.getElementById("paymentChart").getContext("2d");
+
+  if (chartInstance) chartInstance.destroy();
+
+  chartInstance = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels,
+      datasets: [{
+        data,
+        backgroundColor: ['#36A2EB', '#FF6384', '#4BC0C0', '#FFCE56', '#9966FF', '#FF9F40']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
 });

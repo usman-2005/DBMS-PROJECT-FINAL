@@ -249,8 +249,32 @@ app.post('/bookings', async (req, res) => {
 
 
 
-const PORT = process.env.PORT;
+app.get('/method', async (req, res) => {
+    console.log("Hitting /method route...");
+    try {
+        const result = await pool.query(`
+            SELECT payment_method, COUNT(*) as count
+            FROM payments
+            GROUP BY payment_method
+        `);
+        res.json(result.rows);
+    } catch (err) {
+        console.error("Database error:", err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+const PORT = process.env.PORT || 4040;
 
 app.listen(PORT, () => {
-    console.log(`Connect successfully...on PORT ${PORT}`);
-}); 
+  console.log(`✅ Server running on port ${PORT}`);
+});

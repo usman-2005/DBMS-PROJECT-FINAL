@@ -11,6 +11,13 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+.HEADING {
+  text-align: center;
+  color: gold;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
 
 /* Table styling */
 table {

@@ -8,9 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>User Feedback</h1>
-    <button id="showFeedbackFormBtn" class="btn btn-success">+ Add New Feedback</button>
+    <h1 class="HEADING">USER FEEDBACK</h1>
+   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Feedback</button>
 
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" id="chartsBtn">Charts</button>
+        <button class="btn btn-secondary" onclick="location.href='index.html'">Home</button>
+      </div>
+    </div>
     <!-- Feedback Table -->
     <table id="feedbackTable" class="table" style="width: 100%; margin-top: 20px;">
       <thead>

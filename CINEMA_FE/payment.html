@@ -5,11 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Payments</title>
   <link rel="stylesheet" href="CSS/STYLE.CSS" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Payments</h1>
-    <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Payment</button>
+    <h1 class="HEADING">PAYMENTS</h1>
+
+    <!-- Button section aligned with flex -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Payment</button>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" id="chartsBtn">Charts</button>
+        <button class="btn btn-secondary" onclick="location.href='index.html'">Home</button>
+      </div>
+    </div>
 
     <!-- Payments Table -->
     <table id="paymentTable" class="table" style="width: 100%; margin-top: 20px;">
@@ -56,6 +66,13 @@
     </form>
   </div>
 
+  <!-- Chart Section -->
+  <div id="chartSection" class="d-none mt-4">
+  <h3>Payment Methods Pie Chart</h3>
+  <div style="width: 450px; height: 400px; margin: auto;">
+    <canvas id="paymentChart"></canvas>
+  </div>
+</div>
   <script src="JS/payment.js"></script>
 </body>
 </html>

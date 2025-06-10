@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Screens</title>
   <link rel="stylesheet" href="CSS/STYLE.CSS" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Screens</h1>
-    <button id="showScreenFormBtn" class="btn btn-success">+ Add New Screen</button>
+    <h1 class="HEADING">SCREENS</h1>
+     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <button id="showPaymentFormBtn" class="btn btn-success">+ Add New Screen</button>
 
+      <div style="display: flex; gap: 10px;">
+        <button class="btn btn-secondary" id="chartsBtn">Charts</button>
+        <button class="btn btn-secondary" onclick="location.href='index.html'">Home</button>
+      </div>
+    </div>
     <!-- Screens Table -->
     <table id="screenTable" class="table" style="width: 100%; margin-top: 20px;">
       <thead>
@@ -55,6 +62,13 @@
       </div>
     </form>
   </div>
+    <!-- Chart Section -->
+  <div id="chartSection" class="d-none mt-4">
+  <h3>Payment Methods Pie Chart</h3>
+  <div style="width: 450px; height: 400px; margin: auto;">
+    <canvas id="paymentChart"></canvas>
+  </div>
+</div>
 
   <script src="JS/screen.js"></script>
 </body>
