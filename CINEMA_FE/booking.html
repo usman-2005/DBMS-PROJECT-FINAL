@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bookings</title>
   <link rel="stylesheet" href="CSS/STYLE.CSS" />
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
@@ -61,6 +62,14 @@
       </div>
     </form>
   </div>
+
+  <div id="chartSection" class="d-none mt-4">
+  <h3 class="text-center">Booking Amount Distribution</h3>
+  <div style="width: 500px; margin: auto;">
+    <canvas id="bookingChart"></canvas>
+  </div>
+</div>
+
 
   <script src="JS/booking.js"></script>
 </body>

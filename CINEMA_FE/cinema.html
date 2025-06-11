@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cinema Management</title>
 <link rel="stylesheet" href="CSS/STYLE.CSS" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -55,6 +57,14 @@
       </form>
     </div>
   </div>
+
+  <div id="chartSection" class="d-none mt-4">
+  <h3>Total Screens per Cinema</h3>
+  <div style="width: 600px; height: 450px; margin: auto;">
+    <canvas id="cinemaChart"></canvas>
+  </div>
+</div>
+
 
   <script src="JS/cinema.js"></script>
 </body>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Movies</title>
   <link rel="stylesheet" href="CSS/STYLE.CSS" />
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
@@ -73,6 +74,16 @@
     </form>
   </div>
 
+  <div id="chartSection" class="d-none mt-4">
+  <h3>Movies by Genre</h3>
+  <div style="width: 800px; height: 450px; margin: auto;">
+    <canvas id="movieGenreChart"></canvas>
+  </div>
+</div>
+
   <script src="JS/movie.js"></script>
 </body>
 </html>
+
+
+

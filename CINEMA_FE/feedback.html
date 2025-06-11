@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Feedback Management</title>
   <link rel="stylesheet" href="CSS/STYLE.CSS" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -61,6 +63,13 @@
       </div>
     </form>
   </div>
+  <div id="chartSection" class="d-none mt-4">
+  <h3>Feedback Rating Pie Chart</h3>
+  <div style="width: 450px; height: 400px; margin: auto;">
+    <canvas id="feedbackChart"></canvas>
+  </div>
+</div>
+
 
   <script src="JS/feedback.js"></script>
 </body>

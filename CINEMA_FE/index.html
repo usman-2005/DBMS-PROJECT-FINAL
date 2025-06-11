@@ -200,8 +200,8 @@
       <h1>CineAxis</h1>
     </div>
     <div class="nav-buttons">
-      <!-- <button id="chartsBtn">Charts</button>
-      <button id="homeBtn">Home</button> -->
+      <button id="chartsBtn">Charts</button>
+      <button id="homeBtn">Home</button>
       <button id="logoutBtn">Logout</button>
     </div>
     <p class="subtitle">Power your cinema, the smart way.</p>
@@ -252,7 +252,11 @@
       document.getElementById('loginBox').style.display = 'none';
       document.getElementById('dashboard').style.display = 'grid';
       document.getElementById('chartsDashboard').style.display = 'none';
-      document.querySelectorAll('.nav-buttons button').forEach(btn => btn.style.display = 'block');
+
+      // Only show logout button
+      document.getElementById('logoutBtn').style.display = 'block';
+      document.getElementById('homeBtn').style.display = 'none';
+      document.getElementById('chartsBtn').style.display = 'none';
     }
 
     function login() {
@@ -278,11 +282,19 @@
     document.getElementById('chartsBtn').addEventListener('click', function () {
       document.getElementById('chartsDashboard').style.display = 'grid';
       document.getElementById('dashboard').style.display = 'none';
+
+      // Show charts & home buttons
+      document.getElementById('homeBtn').style.display = 'block';
+      document.getElementById('chartsBtn').style.display = 'block';
     });
 
     document.getElementById('homeBtn').addEventListener('click', function () {
       document.getElementById('dashboard').style.display = 'grid';
       document.getElementById('chartsDashboard').style.display = 'none';
+
+      // Hide charts & home
+      document.getElementById('homeBtn').style.display = 'none';
+      document.getElementById('chartsBtn').style.display = 'none';
     });
 
     window.onload = function () {

@@ -106,3 +106,63 @@ showForm.addEventListener("submit", e => {
 document.getElementById("cancelShowFormBtn")?.addEventListener("click", function () {
   hideShowForm();
 });
+
+let showChartInstance;
+
+document.getElementById("chartsBtn")?.addEventListener("click", () => {
+  document.getElementById("chartSection").classList.remove("d-none");
+
+  const showsPerDay = {};
+  const showsPerScreen = {};
+
+  showData.forEach(show => {
+    // Count by Date
+    const date = show.show_date;
+    showsPerDay[date] = (showsPerDay[date] || 0) + 1;
+
+    // Count by Screen
+    const screenId = show.screen_id;
+    showsPerScreen[screenId] = (showsPerScreen[screenId] || 0) + 1;
+  });
+
+  const dayLabels = Object.keys(showsPerDay);
+  const screenLabels = Object.keys(showsPerScreen);
+  const dayCounts = Object.values(showsPerDay);
+  const screenCounts = Object.values(showsPerScreen);
+
+  const ctx = document.getElementById("showChart").getContext("2d");
+
+  if (showChartInstance) showChartInstance.destroy();
+
+  showChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [...dayLabels, ...screenLabels.map(s => `Screen ${s}`)],
+      datasets: [{
+        label: "Shows per Day",
+        data: [...dayCounts, ...Array(screenCounts.length).fill(null)],
+        backgroundColor: "steelblue"
+      }, {
+        label: "Shows per Screen",
+        data: [...Array(dayCounts.length).fill(null), ...screenCounts],
+        backgroundColor: "orange"
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Shows per Day vs Shows per Screen"
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+});
+

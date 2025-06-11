@@ -99,3 +99,60 @@ screenForm.addEventListener("submit", e => {
 document.getElementById("cancelScreenFormBtn")?.addEventListener("click", function () {
   hideScreenForm();
 });
+
+let screenChartInstance;
+
+const screenChartSection = document.getElementById("chartSection");
+
+document.getElementById("chartsBtn")?.addEventListener("click", () => {
+  screenChartSection.classList.remove("d-none");
+
+  const screenCounts = {
+    STANDARD: 0,
+    IMAX: 0,
+    "3D": 0,
+    "4DX": 0
+  };
+
+  screenData.forEach(screen => {
+    const type = screen.type?.toUpperCase();
+    if (screenCounts[type] !== undefined) {
+      screenCounts[type]++;
+    }
+  });
+
+  const labels = Object.keys(screenCounts);
+  const data = Object.values(screenCounts);
+
+  const ctx = document.getElementById("screenTypeChart").getContext("2d");
+
+  if (screenChartInstance) screenChartInstance.destroy();
+
+  screenChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Number of Screens",
+        data,
+        backgroundColor: ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2"]
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: "Screens by Type"
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+});

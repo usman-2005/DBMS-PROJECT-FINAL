@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shows</title>
  <link rel="stylesheet" href="CSS/STYLE.CSS" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
@@ -72,6 +73,13 @@
       </div>
     </form>
   </div>
+  <div id="chartSection" class="d-none mt-4">
+  <h3 class="text-center">Show Analytics</h3>
+  <div style="width: 700px; margin: auto;">
+    <canvas id="showChart"></canvas>
+  </div>
+</div>
+
 
   <script src="JS/shows.js"></script>
 </body>

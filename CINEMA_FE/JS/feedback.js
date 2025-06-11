@@ -99,3 +99,49 @@ feedbackForm.addEventListener("submit", e => {
 document.getElementById("cancelFeedbackFormBtn")?.addEventListener("click", function () {
   hideFeedbackForm();
 });
+
+let feedbackChartInstance = null;
+
+const chartBtn = document.getElementById("chartsBtn");
+const chartSection = document.getElementById("chartSection");
+
+chartBtn?.addEventListener("click", () => {
+  chartSection.classList.toggle("d-none");
+
+  let below3 = 0, between3to4 = 0, above4 = 0;
+
+  feedbackData.forEach(fb => {
+    const rating = parseFloat(fb.rating);
+    if (rating <= 2) below3++;
+    else if (rating <= 4) between3to4++;
+    else if (rating === 5) above4++;
+  });
+
+  const ctx = document.getElementById("feedbackChart").getContext("2d");
+
+  if (feedbackChartInstance) feedbackChartInstance.destroy();
+
+  feedbackChartInstance = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["Below 3", "Between 3–4", "Above 4"],
+      datasets: [{
+        data: [below3, between3to4, above4],
+        backgroundColor: ["#FF6B6B", "#FFD93D", "#6BCB77"],
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+        },
+        title: {
+          display: true,
+          text: "Feedback Rating Distribution"
+        }
+      }
+    }
+  });
+});
+

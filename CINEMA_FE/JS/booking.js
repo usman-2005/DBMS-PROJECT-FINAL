@@ -99,3 +99,53 @@ bookingForm.addEventListener("submit", e => {
 document.getElementById("cancelBookingFormBtn")?.addEventListener("click", function () {
   hideBookingForm();
 });
+ 
+let bookingChartInstance;
+
+document.getElementById("chartsBtn")?.addEventListener("click", () => {
+  document.getElementById("chartSection").classList.remove("d-none");
+
+  let low = 0;       // ≤ 500
+  let medium = 0;    // 501–1000
+  let high = 0;      // > 1000
+
+  bookingData.forEach(booking => {
+    const amount = parseFloat(booking.total_amount);
+
+    if (amount <= 500) {
+      low++;
+    } else if (amount <= 1000) {
+      medium++;
+    } else {
+      high++;
+    }
+  });
+
+  const ctx = document.getElementById("bookingChart").getContext("2d");
+
+  if (bookingChartInstance) bookingChartInstance.destroy();
+
+  bookingChartInstance = new Chart(ctx, {
+    type: "pie",
+    data: {
+      labels: ["≤ ₹500", "₹501–1000", "> ₹1000"],
+      datasets: [{
+        label: "Booking Amount Distribution",
+        data: [low, medium, high],
+        backgroundColor: ["#81c784", "#ffb74d", "#e57373"]
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Booking Amount Distribution"
+        },
+        legend: {
+          position: "bottom"
+        }
+      }
+    }
+  });
+});

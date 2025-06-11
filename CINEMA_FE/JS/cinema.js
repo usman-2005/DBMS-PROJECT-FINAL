@@ -97,3 +97,47 @@ cinemaForm.addEventListener("submit", e => {
 document.getElementById("cancelCinemaFormBtn")?.addEventListener("click", function () {
   hideCinemaForm();
 });
+
+let cinemaChartInstance;
+
+const chartBtn = document.getElementById("chartsBtn");
+const chartSection = document.getElementById("chartSection");
+
+chartBtn?.addEventListener("click", () => {
+  chartSection.classList.toggle("d-none");
+
+  const labels = cinemaData.map(cinema => cinema.name);
+  const data = cinemaData.map(cinema => cinema.total_screens);
+
+  const ctx = document.getElementById("cinemaChart").getContext("2d");
+
+  if (cinemaChartInstance) cinemaChartInstance.destroy();
+
+  cinemaChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Total Screens per Cinema",
+        data,
+        backgroundColor: "skyblue",
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true },
+        title: {
+          display: true,
+          text: "Total Screens per Cinema"
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          stepSize: 1
+        }
+      }
+    }
+  });
+});

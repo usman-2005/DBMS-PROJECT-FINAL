@@ -103,3 +103,60 @@ movieForm.addEventListener("submit", e => {
 document.getElementById("cancelMovieFormBtn")?.addEventListener("click", function () {
   hideMovieForm();
 });
+
+let movieGenreChartInstance = null;
+
+const chartBtn = document.getElementById("chartsBtn");
+const chartSection = document.getElementById("chartSection");
+
+chartBtn?.addEventListener("click", () => {
+  chartSection.classList.toggle("d-none");
+
+  const genres = [
+    "ACTION", "COMEDY", "SCI-FI", "ADVENTURE", "DRAMA", "BIOGRAPHY", "ROMANCE",
+    "HORROR", "WESTERN", "MUSICAL", "MYSTERY", "WAR", "THRILLER", "ANIMATION",
+    "CRIME", "HISTORICAL"
+  ];
+
+  // Count occurrences per genre
+  const genreCounts = genres.map(genre =>
+    movieData.filter(movie => movie.genre.toUpperCase() === genre).length
+  );
+
+  const ctx = document.getElementById("movieGenreChart").getContext("2d");
+
+  if (movieGenreChartInstance) movieGenreChartInstance.destroy();
+
+  movieGenreChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: genres,
+      datasets: [{
+        label: "Movies by Genre",
+        data: genreCounts,
+        backgroundColor: "cornflowerblue",
+        borderColor: "navy",
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Number of Movies per Genre"
+        },
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            precision: 0
+          }
+        }
+      }
+    }
+  });
+});
+

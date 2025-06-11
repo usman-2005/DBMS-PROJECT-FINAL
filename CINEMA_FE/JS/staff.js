@@ -103,3 +103,63 @@ staffForm.addEventListener("submit", e => {
 document.getElementById("cancelStaffFormBtn")?.addEventListener("click", function () {
   hideStaffForm();
 });
+
+let staffChartInstance;
+
+document.getElementById("chartsBtn")?.addEventListener("click", () => {
+  document.getElementById("chartSection").classList.remove("d-none");
+
+  const roles = ["MANAGER", "CASHIER", "TECHNICIAN", "RECEPTIONIST", "CLEANER", "SECURITY"];
+  const roleCounts = {
+    MANAGER: 0,
+    CASHIER: 0,
+    TECHNICIAN: 0,
+    RECEPTIONIST: 0,
+    CLEANER: 0,
+    SECURITY: 0
+  };
+
+  staffData.forEach(staff => {
+    const role = (staff.role || "").toUpperCase();
+    if (roleCounts.hasOwnProperty(role)) {
+      roleCounts[role]++;
+    }
+  });
+
+  const labels = roles;
+  const data = roles.map(role => roleCounts[role]);
+
+  const ctx = document.getElementById("staffRoleChart").getContext("2d");
+
+  if (staffChartInstance) staffChartInstance.destroy();
+
+  staffChartInstance = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{
+        label: "Number of Staff",
+        data,
+        backgroundColor: "#42a5f5"
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: "Staff Role Distribution"
+        },
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+});
